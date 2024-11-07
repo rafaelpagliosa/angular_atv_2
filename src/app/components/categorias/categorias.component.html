@@ -1,0 +1,26 @@
+<!-- src/app/components/categorias/categorias.component.html -->
+<div class="container">
+  <!-- Menu Lateral de Categorias -->
+  <aside class="menu-lateral">
+    <h2>Categorias</h2>
+    <ul>
+      <li class="li" *ngFor="let categoria of categorias" (click)="selecionarCategoria(categoria)">
+        {{ categoria }}
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Área Principal para Exibir Filmes -->
+  <main class="filmes">
+    <h3 *ngIf="categoriaSelecionada">Filmes da Categoria: {{ categoriaSelecionada }}</h3>
+    <h3 *ngIf="!categoriaSelecionada">Selecione uma Categoria:</h3>
+    <div class="filmes-grid">
+      <div class="card" *ngFor="let filme of filmes">
+        <img [src]="filme.capa" alt="Capa do Filme {{ filme.nome }}" class="capa" />
+        <div class="detalhes">
+          <h4>{{ filme.nome }}</h4>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
